@@ -1,0 +1,17 @@
+{% load staticfiles %}
+{% load custom_markdown %}
+<!doctype html>
+
+<head>
+<link type="text/css" rel="stylesheet" href="{% static 'editor/code.css'%}">
+</head>
+<form method = 'get' action ="{% url 'editor:compile' entry.id %}" >
+  <input type="submit" value = "编辑" />
+  </form>
+
+
+
+
+{{ headline | custom_markdown  }}
+
+{{ body_text | custom_markdown  }}

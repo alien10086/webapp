@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<title>用户注册</title>
+
+
+<body>
+<h1>注册页面：</h1>
+<form method = 'post' action ="{% url 'editor:register' %}" >
+  {% csrf_token %}
+
+
+  <p>用户名</p><input name="username"
+    type="text"
+    style="height: 20px;width: 500px;"
+    placeholder="输入用户名">
+  <p>密码</p>  <input name="password"
+      type="text"
+      style="height: 20px;width: 500px;"
+      placeholder="输入密码">
+    <p>确认秘码</p>  <input name="password1"
+        type="text"
+        style="height: 20px;width: 500px;"
+        placeholder="再次输入密码">
+
+
+    <p>e-mail</p>  <input name="e-mail"
+        type="text"
+        style="height: 20px;width: 500px;"
+        placeholder="输入邮箱">
+    <p>firstname</p>    <input name="firstname"
+          type="text"
+          style="height: 20px;width: 500px;"
+          placeholder="输入名">
+      <p>lastname</p>    <input name="lastname"
+            type="text"
+            style="height: 20px;width: 500px;"
+            placeholder="输入姓氏">
+
+
+<input type="submit" value = "ok" />
+</form>
+{% if errors %}
+<p> {{errors}}</p>
+{% endif %}
+
+</body>
+</html>
