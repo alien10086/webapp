@@ -135,9 +135,14 @@ def sub_article(request):
          body_text = body,
          pub_date = timezone.now())
         updb.save()
-        entry_id = updb.id
-        contex ={'headline':title1, 'body_text':body, 'entry_id':entry_id}
-        return render(request,'editor/look.html',context)
+        one_entry = updb
+        context ={'headline':title1, 'body_text':body, 'one_entry':one_entry}
+        return render(request,'editor/makedown/widget.html',context)
+
+def delete_article(request, article_id):
+    one_entry = Entry.objects.get(pk=article_id)
+    one_entry.delete()
+    return homepage(request)
 
 def compile(request, article_id):
     one_entry = Entry.objects.get(pk=article_id)

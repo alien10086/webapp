@@ -1,5 +1,5 @@
 {% load staticfiles %}
-{% load custom_markdown %}
+
 <!doctype html>
 
 <head>
@@ -9,9 +9,13 @@
   <input type="submit" value = "编辑" />
   </form>
 
+  <form method = 'get' action ="{% url 'editor:delete_article' entry.id %}" >
+    <input type="submit" value = "删除" />
+    </form>
 
 
 
-{{ headline | custom_markdown  }}
 
-{{ body_text | custom_markdown  }}
+{{ headline }}
+
+{{ body_text }}

@@ -6,12 +6,14 @@
     <ul>
       <li><a href="{% url 'editor:homepage' %}">主页</a></li>
       <li><a href="{% url 'editor:add_article' %}">写新博客</a></li>
+      
     </ul>
 </nav>
 
 <div class="markdownx row">
     <div class="col-md-6">
       {% if one_entry %}
+      <input >
       <form method="get" action="{% url 'editor:edit' one_entry.id %}" >
 
         {% csrf_token %}

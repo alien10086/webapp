@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^(?P<entry_id>[0-9]+)/look/$', views.look, name= 'look'),
     url(r'^(?P<article_id>[0-9]+)/compile/$', views.compile, name='compile'),
     url(r'^(?P<article_id>[0-9]+)/edit/$', views.edit, name='edit'),
-
+    url(r'^(?P<article_id>[0-9]+)/delete_article/$', views.delete_article, name='delete_article')
 
 
 
