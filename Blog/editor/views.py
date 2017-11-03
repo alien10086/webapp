@@ -87,11 +87,12 @@ def my_view(request):
 #官方文档有错误，需要使用auth.login而不是，login（）
         auth.login(request, user)
         context = {'username':user.username, 'operation' :'登陆'}
-        return render(request,'editor/succeed.html', context)
+        return homepage(request)
 
 
     else:
-        return HttpResponse("账户不存在")
+        context= {'message':"账户或密码错误"}
+        return render(request, 'login/login.html',context)
 
 
 @login_required(login_url='editor/login')

@@ -1,32 +1,26 @@
-{% block content %}
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src= '{% static 'editor/jquery-3.2.1.js'%}'></script>
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+  <link type="text/css" rel="stylesheet" href="{% static 'editor/123.css'%}">
 
-<form method="post" action="{% url 'editor:my_view' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>
-    {{ form.username.label_tag }}</td>
-    <td>  <input name="username"
-      type="text"
-      style="height: 20px;width: 500px;"
-      placeholder="输入用户名"></td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>  <input name="password"
-      type="text"
-      style="height: 20px;width: 500px;"
-      placeholder="输入密码"></td>
-</tr>
-</table>
+</head>
+<body>
 
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
+  <h3>账号登陆</h3>
+  <form id="login-from" method="post" action="{% url 'editor:my_view' %}">
+    {% csrf_token %}
+    <input id="username" class="user-name" name="username" type="text" placeholder="输入用户名">
+    <input id="password" class="pass-word" name="password" type="text" placeholder="输入密码">
+    <button class="logging" type="submit" >登陆</button>
 
+      {% if message %}
+      <h2 > {{ message }} </h2>
+      {% endif %}
 
-{% endblock %}
+  </form>
+</body>
+</html>

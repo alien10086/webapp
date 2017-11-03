@@ -1,39 +1,40 @@
-
 {% load staticfiles %}
+<!doctype html>
+<html>
 
-<link rel="stylesheet" href="{%static 'editor/makedownx.css' %}">
-<nav>
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="{%static 'editor/makedownx.css' %}">
+</head>
+<body>
+  <nav>
     <ul>
       <li><a href="{% url 'editor:homepage' %}">主页</a></li>
       <li><a href="{% url 'editor:add_article' %}">写新博客</a></li>
-      
-    </ul>
-</nav>
 
-<div class="markdownx row">
+    </ul>
+  </nav>
+
+
+  <div class="markdownx row">
     <div class="col-md-6">
       {% if one_entry %}
       <input >
       <form method="get" action="{% url 'editor:edit' one_entry.id %}" >
-
         {% csrf_token %}
-
         <textarea name="headline"
         rows="1"
-      style="height: 20px;width: 500px;">
+        style="height: 20px;width: 500px;">
          {{ headline }}
         </textarea>
-
-
-
-         <p>文章内容</p>
-    <textarea name="body_text"
-    rows="55"
-    style="width: 630px;">
-    {{body_text }}
-    </textarea>
-
-    <input type="submit" value="提交" style="margin-left: 300px;width: 60px;height: 20px;">
+        <p>文章内容</p>
+        <textarea name="body_text"
+        rows="55"
+        style="width: 630px;">
+        {{body_text }}
+        </textarea>
+        <input type="submit" value="提交" style="margin-left: 300px;width: 60px;height: 20px;">
 
 
 
@@ -73,3 +74,5 @@
         <div class="markdownx-preview"></div>
     </div>
 </div>
+
+</html>
