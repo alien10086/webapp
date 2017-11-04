@@ -15,9 +15,7 @@ from django.contrib.auth.models import User
 
 
 def index(request):
-    article_list = Entry.objects.order_by('-pub_date')[:10]
-    context = {'article_list': article_list}
-    return render(request, 'editor/index.html',context)
+    return render(request, 'index.html')
 
 def login(request):
     return render(request, 'login/login.html')
